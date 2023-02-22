@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Richard Alvarez">
+        <meta name="description" content="A page helping introduce new web 
+        developers to HTML/CSS, by example.">
+        
+        <title>HTML and CSS</title>
+        <link rel="stylesheet" type="text/css" href="/static/style.css"></link>
+    </head>
+    <body>
+        <div class="block">
+            <h1 class="main-header">Simple crud api</h1>
+            <p class="sub-header">A simple api to manage a list of generic items (books, movies) etc... using go and mongodb.</p>
+        </div>
+        
+        <div class="container">
+            <h2 class="topic-header">User interaction</h2>
+            <ul>
+        <li>POST <code>api/user/signup</code> - Send a json in body to register as new user.
+            <pre><code class="lang-json">{
+  <span class="hljs-attr">"username"</span> : <span class="hljs-string">"some_username"</span>,
+  <span class="hljs-attr">"password"</span> : <span class="hljs-string">"some_password"</span>,
+  <span class="hljs-attr">"firstName"</span> : <span class="hljs-string">"firstName"</span>,
+  <span class="hljs-attr">"lastName"</span> : <span class="hljs-string">"lastName"</span>
+}
+</code></pre>
+        </li>
+        <li>POST <code>api/user/login</code> - Login to existing account and recieve an api key for further requests.
+            sample login request
+            <pre><code class="lang-json">{
+  <span class="hljs-attr">"username"</span> : <span class="hljs-string">"some_username"</span>,
+  <span class="hljs-attr">"password"</span> : <span class="hljs-string">"some_password"</span>,
+  <span class="hljs-attr">"firstName"</span> : <span class="hljs-string">"firstName"</span>,
+  <span class="hljs-attr">"lastName"</span> : <span class="hljs-string">"lastName"</span>
+}
+</code></pre>
+            sample response
+            <pre><code class="lang-json">{
+  <span class="hljs-attr">"statusCode"</span>: <span class="hljs-number">200</span>,
+  <span class="hljs-attr">"status"</span>: <span class="hljs-string">"success"</span>,
+  <span class="hljs-attr">"data"</span>: {
+      <span class="hljs-attr">"token"</span>: <span class="hljs-string">"0d171765-ec88-45ff-81c9-c95c968029ef"</span>
+  }
+}
+</code></pre>
+        </li>
+        <li>POST <code>/api/user/delete</code> - Delete account using username and password similar to login</li>
+    </ul>
+            
+            <pre>
+    <span class="cyan">&#x3C;p&#x3E;</span>I&#x27;ve been made an example of!<span class="cyan">&#x3C;/p&#x3E;
+            </span>
+            </pre>
+            
+            <hr />
+            
+            <h2 class="topic-header css">Managing items</h2>
+            
+            <h3 id="managing-items">Managing items</h3>
+    <p>Add api_key header in all the requests to authenticate access to items.</p>
+    <ul>
+        <li>GET <code>/api/items</code> - Retrieve all items</li>
+        <li>POST <code>/api/items</code> - Add a new items. Data should be a valid json format.</li>
+        <li>Get <code>/api/item/:id</code> - Get a specific item.</li>
+        <li>Patch <code>/api/item/:id</code> - Update the item info.</li>
+        <li>Delete <code>/api/item/:id</code> - Delete item if exists</li>
+    </ul>
+            
+ 
+        </div>
+    </body>
+</html>

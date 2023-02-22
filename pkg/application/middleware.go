@@ -42,7 +42,7 @@ func (app *Application) setHeaders(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		// Note: This is split across multiple lines for readability. You don't
 		// need to do this in your own code.
-		w.Header().Set("Content-Type", "application/json")
+		// w.Header().Set("Content-Type", "application/json")
 		// w.Header().Set("Content-Security-Policy",
 		// 	"default-src 'self'; style-src 'self' fonts.googleapis.com; font-src fonts.gstatic.com")
 		w.Header().Set("Referrer-Policy", "origin-when-cross-origin")
@@ -66,7 +66,7 @@ func (app *Application) isAuthorized(next http.Handler) http.Handler {
 			app.clientError(w, http.StatusBadRequest)
 			return
 		}
-		app.infoLog.Printf("%s-%s",val.Username,val.Token)
+		app.infoLog.Printf("%s-%s", val.Username, val.Token)
 		// fmt.Println("vaalid key User ", val.Username)
 		ctx := context.WithValue(r.Context(), contextUserKey, val.Username)
 		next.ServeHTTP(w, r.WithContext(ctx))

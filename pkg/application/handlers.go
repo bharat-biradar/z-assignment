@@ -254,3 +254,7 @@ func (app *Application) validateSignupForm(form *userInfoForm) {
 
 	form.CheckField(!ok, "username", "username already taken")
 }
+
+func (app *Application) homePage(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, "/static/home.html", http.StatusTemporaryRedirect)
+}
