@@ -16,8 +16,9 @@ func main() {
 		port = "4000"
 		addr = "localhost:"
 	} else {
-		port = "0.0.0.0:"
+		addr = "0.0.0.0:"
 	}
+
 	app, err := application.Get()
 	if err != nil {
 		log.Fatal(err)
